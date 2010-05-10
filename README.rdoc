@@ -1,6 +1,25 @@
 = idclight
 
-Description goes here.
+A Ruby gem for accessing the freely available IDClight (IDConverter Light) web service, which convert between different types of gene IDs such as Hugo and Entrez. Queries are screen scraped from http://idclight.bioinfo.cnio.es.
+
+== Command-Line Usage
+
+hugo_to_entrez BRCA2
+
+== Application Usage
+
+=== Converting a Hugo ID to an Entrez ID
+
+require 'idclight'
+include IDConverter::Light
+hugo_id_to_entrez_id('BRCA2')
+
+=== Getting Raw Data With Advanced Queries
+
+require 'idclight'
+include IDConverter::Light
+data = search(@@HUGO, id, @@MOUSE) 
+# See +IDConverter::Light+ for a full list of supported constants. 
 
 == Note on Patches/Pull Requests
  
