@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{idclight}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Preston Lee"]
@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
      "VERSION",
      "bin/convert.rb",
      "bin/hugo_to_entrez.rb",
+     "idclight.gemspec",
      "lib/idclight.rb",
      "test/helper.rb",
      "test/test_idclight.rb"
