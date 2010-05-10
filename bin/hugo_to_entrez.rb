@@ -13,18 +13,15 @@ include IDConverter::Light
 
 code = 0
 puts "\n"
-puts "IDCLight (IDConverter Light) command-line converter utility. (Uses http://idclight.bioinfo.cnio.es for data.)"
-org = @@HUMAN
-if ARGV.length >= 2 and ARGV.length <= 3
-	id_type = ARGV[0]
-	id = ARGV[1]
-	org = ARGV[2] unless ARGV[2].nil?
-	r = convert(id_type, id, org)
+puts "IDCLight (IDConverter Light) command-line converter utility, by Preston Lee. (Screen scapes http://idclight.bioinfo.cnio.es for data.)"
+if ARGV.length == 1
+	id = ARGV[0]
+	r = hugo_id_to_entrez_id(id)
 	if r.nil?
-	  puts "No result. Bad input, perhaps? :/"
+	  puts "No result. Bad input, perhaps? :("
 	  code = 1
 	else
-		puts "\n"
+		puts "\n#{r}"
 	end
 else
 	puts "\n\tUsage: #{__FILE__} <id_type> <id> [organism (defaults to human)]"
