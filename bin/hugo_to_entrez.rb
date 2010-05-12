@@ -24,7 +24,7 @@ if ARGV.length == 1
 		puts "\n#{r}"
 	end
 else
-	puts "\n\tUsage: #{__FILE__} <id_type> <id> [organism (defaults to human)]"
+	puts "\n\tUsage: #{__FILE__} <id>"
 end
 puts "\n"
 

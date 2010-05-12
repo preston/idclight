@@ -15,7 +15,7 @@ module IDConverter
     # ID type constants.
     @@UNIGENE		= 'ug'
     @@ENTREZ		= 'entrez'
-    @@ENSEMBL		= 'ensumbl'
+    @@ENSEMBL		= 'ensembl'
     @@HUGO			= 'hugo'
     @@GENBANK		= 'acc'
     @@CLONE			= 'clone'
@@ -68,17 +68,58 @@ module IDConverter
     
     def hugo_id_to_entrez_id(id, organism = @@HUMAN)
       data = search(@@HUGO, id, organism)
-      id = nil
-      ent = data['Entrez Gene']
-      if ent
-        doc = Hpricot(ent)
-        doc.search('//a').each do |e|
-          tmp = e.inner_html.to_i
-          id = tmp if tmp != 0 
-        end
-      end
-      id
+      extract_entrez_id(data)
     end
+
+    def hugo_id_to_ensembl_id(id, organism = @@HUMAN)
+      data = search(@@HUGO, id, organism)
+      extract_ensembl_id(data)
+    end
+
+    def ensembl_id_to_entrez_id(id, organism = @@HUMAN)
+     	data = search(@@ENSEMBL, id, organism)
+ 		extract_entrez_id(data)
+    end
+
+    def ensembl_id_to_hugo_id(id, organism = @@HUMAN)
+     	data = search(@@ENSEMBL, id, organism)
+ 		extract_hugo_id(data)
+    end
+
+	def extract_entrez_id(data)
+		ent = data['Entrez Gene']
+		id = nil
+		if ent
+			doc = Hpricot(ent)
+	        doc.search('//a').each do |e|
+	          tmp = e.inner_html.to_i
+	          id = tmp if tmp != 0 
+	        end
+		end	
+		id
+	end
+	
+	def extract_hugo_id(data)
+		ent = data['HUGO']
+		extract_last_link_text(ent)
+	end
+
+	def extract_ensembl_id(data)
+		ent = data['Ensembl']
+		extract_last_link_text(ent)
+	end
+
+	def extract_last_link_text(ent)
+		id = nil
+		if ent
+			doc = Hpricot(ent)
+	        doc.search('//a').each do |e|
+	          tmp = e.inner_html
+	          id = tmp if !tmp.nil? && tmp != ''
+	        end
+		end	
+		id
+	end
     
   end
   
