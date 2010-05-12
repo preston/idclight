@@ -5,14 +5,14 @@
 
 Gem::Specification.new do |s|
   s.name = %q{idclight}
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Preston Lee"]
-  s.date = %q{2010-05-10}
+  s.date = %q{2010-05-11}
   s.description = %q{A Ruby gem for accessing the freely available IDClight (IDConverter Light) web service, which convert between different types of gene IDs such as Hugo and Entrez. Queries are screen scraped from http://idclight.bioinfo.cnio.es.}
   s.email = %q{conmotto@gmail.com}
-  s.executables = ["convert.rb", "hugo_to_entrez.rb"]
+  s.executables = ["convert.rb", "ensembl_to_entrez.rb", "ensembl_to_hugo.rb", "hugo_to_ensembl.rb", "hugo_to_entrez.rb"]
   s.extra_rdoc_files = [
     "LICENSE",
      "README.rdoc"
@@ -26,6 +26,9 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "bin/convert.rb",
+     "bin/ensembl_to_entrez.rb",
+     "bin/ensembl_to_hugo.rb",
+     "bin/hugo_to_ensembl.rb",
      "bin/hugo_to_entrez.rb",
      "idclight.gemspec",
      "lib/idclight.rb",
