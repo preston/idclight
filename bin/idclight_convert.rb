@@ -28,6 +28,21 @@ if ARGV.length >= 2 and ARGV.length <= 3
 	end
 else
 	puts "\n\tUsage: #{__FILE__} <id_type> <id> [organism (defaults to human)]"
+	puts <<EOF
+	
+	From the website:
+	
+	idtype refers to the type of ID from which you want to obtain further information.
+	Current options are: ug (UniGene cluster), entrez (EntrezGene ID),
+	ensembl (Ensembl Gene), hugo (HUGO Gene Name), acc (GenBank accession),
+	clone (Clone ID), affy (Affymetrix ID), rsdna (RefSeq_RNA),
+	rspep (RefSeq_peptide), and swissp (SwissProt name). 
+	
+	id is the ID of the gene or clone for which more information is required. 
+	
+	org is the organism you are working with. Three different organisms are available
+	Hs (Human - Homo sapiens), Mm (Mouse - Mus musculus), and Rn (Rat - Rattus norvegicus).
+EOF
 end
 puts "\n"
 
