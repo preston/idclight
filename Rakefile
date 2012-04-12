@@ -8,10 +8,8 @@ begin
     gem.summary = %Q{Ruby programmnig interface to the IDCLight online database.}
     gem.description = %Q{A Ruby gem for accessing the freely available IDClight (IDConverter Light) web service, which convert between different types of gene IDs such as Hugo and Entrez. Queries are screen scraped from http://idclight.bioinfo.cnio.es.}
     gem.email = "conmotto@gmail.com"
-    gem.homepage = "http://github.com/preston/idclight"
+    gem.homepage = "http://github.com/tgen/idclight"
     gem.authors = ["Preston Lee"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
-    gem.add_dependency "hpricot", ">= 0.8"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
@@ -43,7 +41,7 @@ task :test => :check_dependencies
 
 task :default => :test
 
-require 'rake/rdoctask'
+require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
